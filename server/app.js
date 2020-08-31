@@ -4,7 +4,10 @@ const schema = require('./schema/schema')
 const app = express()
 const mongoose = require('mongoose')
 const connectDb = require('./server')
+const cors = require('cors')
 
+
+app.use(cors())
 connectDb()
 app.use('/graphql',graphqlHTTP({
     schema,
